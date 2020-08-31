@@ -20,10 +20,10 @@ public class DecimalToIpConverter {
      * @return the 32bit dotted format of <code>ip</code>
      * @throws IllegalArgumentException if <code>ip</code> is invalid
      */
-    public static String toIp(long ip) {
+    public String decimalToIp(long ip) {
         // if ip is bigger than 255.255.255.255 or smaller than 0.0.0.0
         if (ip > 4294967295l || ip < 0) {
-            return "invalid ip";
+            return "Invalid IP decimal";
         }
         StringBuilder ipAddress = new StringBuilder();
         for (int i = 3; i >= 0; i--) {

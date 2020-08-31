@@ -133,9 +133,18 @@ public class LayoutPane {
         paneForLayout.setCenter(paneForIpToDecimal);
         paneForLayout.setBottom(paneForDecimalToIp);
 
+        IpToDecimalConverter ipToDecimalConverter = IpToDecimalConverter.getInstance();
         btnForConvertIpToDecimal.setOnAction(e -> {
             String ipAddress = txtFldForIpAddress.getText();
+            String result = ipToDecimalConverter.ipToDecimal(ipAddress);
+            resultOfIpToDecimal.setText("Result: "+result);
+        });
 
+        DecimalToIpConverter decimalToIpConverter = DecimalToIpConverter.getInstance();
+        btnForConvertDecimalToIp.setOnAction(e -> {
+            long ipDecimal = Long.parseLong(txtFldForIpDecimal.getText());
+            String result = decimalToIpConverter.decimalToIp(ipDecimal);
+            resultOfDecimalToIp.setText("Result: "+result);
         });
         return paneForLayout;
     }
