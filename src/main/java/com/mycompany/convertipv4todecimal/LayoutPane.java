@@ -133,6 +133,10 @@ public class LayoutPane {
         paneForLayout.setCenter(paneForIpToDecimal);
         paneForLayout.setBottom(paneForDecimalToIp);
 
+        btnForConvertIpToDecimal.setOnAction(e -> {
+            String ipAddress = txtFldForIpAddress.getText();
+
+        });
         return paneForLayout;
     }
 }
