@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -17,8 +18,8 @@ import javafx.scene.text.Text;
 
 public class LayoutPane {
     private StackPane paneForHeader = new StackPane();
-    private BorderPane paneForInnerContent = new BorderPane();
-    private StackPane paneForFooter = new StackPane();
+    private BorderPane paneForIpToDecimal = new BorderPane();
+    private BorderPane paneForDecimalToIp = new BorderPane();
     private BorderPane paneForLayout = new BorderPane();
 
     public BorderPane getPaneForLayout() {
@@ -37,46 +38,56 @@ public class LayoutPane {
         backgroundForHeading.setFill(Color.GREEN);
 
         paneForHeader.getChildren().addAll(backgroundForHeading,heading);
-        paneForHeader.setPadding(new Insets(15,0,0,0));
+        paneForHeader.setPadding(new Insets(10,0,0,0));
 
-        Text headingIpToDecimal = new Text();
-        headingIpToDecimal.setText("IP to Decimal");
-        headingIpToDecimal.setFill(Color.WHITE);
-        headingIpToDecimal.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR,18));
+        Text headingOfIpToDecimal = new Text();
+        headingOfIpToDecimal.setText("IP to Decimal");
+        headingOfIpToDecimal.setFill(Color.WHITE);
+        headingOfIpToDecimal.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR,16));
 
-        Rectangle backgroundForHeadingIpToDecimal = new Rectangle();
-        backgroundForHeadingIpToDecimal.setWidth(430);
-        backgroundForHeadingIpToDecimal.setHeight(30);
-        backgroundForHeadingIpToDecimal.setFill(Color.GREEN);
+        Rectangle backgroundForHeadingOfIpToDecimal = new Rectangle();
+        backgroundForHeadingOfIpToDecimal.setWidth(430);
+        backgroundForHeadingOfIpToDecimal.setHeight(30);
+        backgroundForHeadingOfIpToDecimal.setFill(Color.GREEN);
 
         StackPane paneForHeadingIpToDecimal = new StackPane();
-        paneForHeadingIpToDecimal.getChildren().addAll(backgroundForHeadingIpToDecimal,headingIpToDecimal);
+        paneForHeadingIpToDecimal.getChildren().addAll(backgroundForHeadingOfIpToDecimal,headingOfIpToDecimal);
+        paneForHeadingIpToDecimal.setPadding(new Insets(10,0,0,0));
 
         Label lbForIpAddress = new Label();
         lbForIpAddress.setText("IP address:");
         lbForIpAddress.setFont(Font.font("Helvetica",15));
 
         TextField txtFldForIpAddress = new TextField();
-
-        HBox paneForLbAndTxtFld = new HBox();
-        paneForLbAndTxtFld.getChildren().addAll(lbForIpAddress,txtFldForIpAddress);
-        paneForLbAndTxtFld.setSpacing(5);
+        txtFldForIpAddress.setPrefWidth(335);
 
         Button btnForConvertIpToDecimal = new Button();
         btnForConvertIpToDecimal.setText("Convert");
         btnForConvertIpToDecimal.setFont(Font.font("Helvetica"));
-        btnForConvertIpToDecimal.setTextFill(Color.WHITE);
         btnForConvertIpToDecimal.setTextFill(Color.GREEN);
 
-        BorderPane paneForIpToDecimal = new BorderPane();
+        GridPane paneForLbTxtFldAndBtnIP = new GridPane();
+        paneForLbTxtFldAndBtnIP.add(lbForIpAddress,0,0);
+        paneForLbTxtFldAndBtnIP.add(txtFldForIpAddress,1,0);
+        paneForLbTxtFldAndBtnIP.add(btnForConvertIpToDecimal,0,1);
+        paneForLbTxtFldAndBtnIP.setHgap(10);
+        paneForLbTxtFldAndBtnIP.setVgap(12);
+        paneForLbTxtFldAndBtnIP.setPadding(new Insets(15,0,0,20));
+
+        TextArea resultOfIpToDecimal = new TextArea();
+        resultOfIpToDecimal.setEditable(false);
+        resultOfIpToDecimal.setPrefHeight(70);
+        resultOfIpToDecimal.setPadding(new Insets(6));
+        resultOfIpToDecimal.setText("Result:");
+
         paneForIpToDecimal.setTop(paneForHeadingIpToDecimal);
-        paneForIpToDecimal.setCenter(paneForLbAndTxtFld);
-        paneForIpToDecimal.setBottom(btnForConvertIpToDecimal);
+        paneForIpToDecimal.setCenter(paneForLbTxtFldAndBtnIP);
+        paneForIpToDecimal.setBottom(resultOfIpToDecimal);
 
         Text headingOfDecimalToIp = new Text();
         headingOfDecimalToIp.setText(" Decimal to IP");
         headingOfDecimalToIp.setFill(Color.WHITE);
-        headingOfDecimalToIp.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR,18));
+        headingOfDecimalToIp.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR,16));
 
         Rectangle backgroundForHeadingOfDecimalToIp = new Rectangle();
         backgroundForHeadingOfDecimalToIp.setWidth(430);
@@ -85,16 +96,14 @@ public class LayoutPane {
 
         StackPane paneForHeadingOfDecimalToIp = new StackPane();
         paneForHeadingOfDecimalToIp.getChildren().addAll(backgroundForHeadingOfDecimalToIp,headingOfDecimalToIp);
+        paneForHeadingOfDecimalToIp.setPadding(new Insets(10,0,0,0));
 
         Label lbForIpDecimal = new Label();
-        lbForIpDecimal.setText("IP Number/ IP Decimal:");
+        lbForIpDecimal.setText("IP Decimal:");
         lbForIpDecimal.setFont(Font.font("Helvetica",15));
 
         TextField txtFldForIpDecimal = new TextField();
-
-        HBox paneForLbAndTxtFldDecimal = new HBox();
-        paneForLbAndTxtFldDecimal.getChildren().addAll(lbForIpDecimal,txtFldForIpDecimal);
-        paneForLbAndTxtFldDecimal.setSpacing(5);
+        txtFldForIpDecimal.setPrefWidth(335);
 
         Button btnForConvertDecimalToIp = new Button();
         btnForConvertDecimalToIp.setText("Convert");
@@ -102,25 +111,27 @@ public class LayoutPane {
         btnForConvertDecimalToIp.setTextFill(Color.WHITE);
         btnForConvertDecimalToIp.setTextFill(Color.GREEN);
 
-        BorderPane paneForDecimalToIp = new BorderPane();
+        GridPane paneForLbTxtFldAndBtnDec = new GridPane();
+        paneForLbTxtFldAndBtnDec.add(lbForIpDecimal,0,0);
+        paneForLbTxtFldAndBtnDec.add(txtFldForIpDecimal,1,0);
+        paneForLbTxtFldAndBtnDec.add(btnForConvertDecimalToIp,0,1);
+        paneForLbTxtFldAndBtnDec.setHgap(10);
+        paneForLbTxtFldAndBtnDec.setVgap(12);
+        paneForLbTxtFldAndBtnDec.setPadding(new Insets(15,0,25,20));
+
+        TextArea resultOfDecimalToIp = new TextArea();
+        resultOfDecimalToIp.setEditable(false);
+        resultOfDecimalToIp.setPrefHeight(70);
+        resultOfDecimalToIp.setPadding(new Insets(6));
+        resultOfDecimalToIp.setText("Result:");
+
         paneForDecimalToIp.setTop(paneForHeadingOfDecimalToIp);
-        paneForDecimalToIp.setCenter(paneForLbAndTxtFldDecimal);
-        paneForDecimalToIp.setBottom(btnForConvertDecimalToIp);
-
-        paneForInnerContent.setTop(paneForIpToDecimal);
-        paneForInnerContent.setCenter(paneForDecimalToIp);
-
-        TextArea result = new TextArea();
-        result.setEditable(false);
-        result.setPrefHeight(70);
-        result.setPadding(new Insets(6));
-        result.setText("Result:");
-
-        paneForFooter.getChildren().add(result);
+        paneForDecimalToIp.setCenter(paneForLbTxtFldAndBtnDec);
+        paneForDecimalToIp.setBottom(resultOfDecimalToIp);
 
         paneForLayout.setTop(paneForHeader);
-        paneForLayout.setCenter(paneForInnerContent);
-        paneForLayout.setBottom(paneForFooter);
+        paneForLayout.setCenter(paneForIpToDecimal);
+        paneForLayout.setBottom(paneForDecimalToIp);
 
         return paneForLayout;
     }

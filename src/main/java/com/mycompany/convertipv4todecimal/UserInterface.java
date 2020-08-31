@@ -11,8 +11,12 @@ public class UserInterface extends Application
     public void start(Stage primaryStage)
     {
         Scene scene = new Scene(layoutPane.getPaneForLayout(),450,500);
+        primaryStage.setTitle("IPv4 Converter");
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
 
+    public static void main(String[] args) {
+        Application.launch(args);
     }
 }
