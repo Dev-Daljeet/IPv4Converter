@@ -1,4 +1,4 @@
-package com.mycompany.convertipv4todecimal;
+package com.mycompany.ipv4conversion;
 
 public class IpToDecimalConverter {
     private static IpToDecimalConverter onlyIpToDecimalConverter = null;
@@ -12,13 +12,7 @@ public class IpToDecimalConverter {
         }
         return onlyIpToDecimalConverter;
     }
-    /**
-     * Returns the long format of the provided IP address.
-     *
-     * @param ipAddress the IP address
-     * @return the long format of <code>ipAddress</code>
-     * @throws IllegalArgumentException if <code>ipAddress</code> is invalid
-     */
+
     public String ipToDecimal(String ipAddress) {
         if (ipAddress.isEmpty())
         {

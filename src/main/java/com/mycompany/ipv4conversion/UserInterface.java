@@ -1,4 +1,4 @@
-package com.mycompany.convertipv4todecimal;
+package com.mycompany.ipv4conversion;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

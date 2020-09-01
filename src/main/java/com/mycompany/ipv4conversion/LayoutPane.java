@@ -1,4 +1,4 @@
-package com.mycompany.convertipv4todecimal;
+package com.mycompany.ipv4conversion;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -7,7 +7,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -50,9 +49,9 @@ public class LayoutPane {
         backgroundForHeadingOfIpToDecimal.setHeight(30);
         backgroundForHeadingOfIpToDecimal.setFill(Color.GREEN);
 
-        StackPane paneForHeadingIpToDecimal = new StackPane();
-        paneForHeadingIpToDecimal.getChildren().addAll(backgroundForHeadingOfIpToDecimal,headingOfIpToDecimal);
-        paneForHeadingIpToDecimal.setPadding(new Insets(10,0,0,0));
+        StackPane paneForHeadingOfIpToDecimal = new StackPane();
+        paneForHeadingOfIpToDecimal.getChildren().addAll(backgroundForHeadingOfIpToDecimal,headingOfIpToDecimal);
+        paneForHeadingOfIpToDecimal.setPadding(new Insets(10,0,0,0));
 
         Label lbForIpAddress = new Label();
         lbForIpAddress.setText("IP address:");
@@ -80,7 +79,7 @@ public class LayoutPane {
         resultOfIpToDecimal.setPadding(new Insets(6));
         resultOfIpToDecimal.setText("Result:");
 
-        paneForIpToDecimal.setTop(paneForHeadingIpToDecimal);
+        paneForIpToDecimal.setTop(paneForHeadingOfIpToDecimal);
         paneForIpToDecimal.setCenter(paneForLbTxtFldAndBtnIP);
         paneForIpToDecimal.setBottom(resultOfIpToDecimal);
 
@@ -135,15 +134,13 @@ public class LayoutPane {
 
         IpToDecimalConverter ipToDecimalConverter = IpToDecimalConverter.getInstance();
         btnForConvertIpToDecimal.setOnAction(e -> {
-            String ipAddress = txtFldForIpAddress.getText();
-            String result = ipToDecimalConverter.ipToDecimal(ipAddress);
+            String result = ipToDecimalConverter.ipToDecimal(txtFldForIpAddress.getText());
             resultOfIpToDecimal.setText("Result: "+result);
         });
 
         DecimalToIpConverter decimalToIpConverter = DecimalToIpConverter.getInstance();
         btnForConvertDecimalToIp.setOnAction(e -> {
-            long ipDecimal = Long.parseLong(txtFldForIpDecimal.getText());
-            String result = decimalToIpConverter.decimalToIp(ipDecimal);
+            String result = decimalToIpConverter.decimalToIp(txtFldForIpDecimal.getText());
             resultOfDecimalToIp.setText("Result: "+result);
         });
         return paneForLayout;
