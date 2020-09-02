@@ -1,9 +1,24 @@
 package com.mycompany.ipv4conversion;
 
+/** Represents the IP decimal to IP address converter.
+ * (Note: The Singleton pattern has been implemented on this class.)
+ * @author Daljeet Singh (Dev-Daljeet)
+ * @version 1.0
+ */
 public class DecimalToIpConverter {
+
+    // the private one and only instance of the class
     private static DecimalToIpConverter onlyDecimalToIpConverter = null;
+
+    /**
+     * Private default no-arg constructor which controls the instantiation of the class.
+     */
     private DecimalToIpConverter()
     {}
+
+    /** Allocates the memory to the only instance and returns it.
+     * @return onlyDecimalToIpConverter An one and only instance of class DecimalToIpConverter.
+     */
     public static DecimalToIpConverter getInstance()
     {
         if (onlyDecimalToIpConverter == null)
@@ -13,6 +28,10 @@ public class DecimalToIpConverter {
         return onlyDecimalToIpConverter;
     }
 
+    /** Returns the 32bit dotted format of the provided IP decimal.
+     * @param ipDecimal A String representing the IP decimal.
+     * @return A String representing the result of decimal to IP conversion.
+     */
     public String decimalToIp(String ipDecimal) {
         if (ipDecimal.isEmpty())
         {

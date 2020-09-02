@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/IPv4ToDecimalConverter.iml" filepath="$PROJECT_DIR$/IPv4ToDecimalConverter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IPv4Converter.iml" filepath="$PROJECT_DIR$/IPv4Converter.iml" />
     </modules>
   </component>
 </project>
