@@ -31,7 +31,7 @@ public class LayoutPane {
     public BorderPane getPaneForLayout() {
         // Make a Text object which acts as a heading of Application.
         Text heading = new Text();
-        heading.setText("Ipv4 Converter");
+        heading.setText("IPv4 Converter");
         heading.setFill(Color.WHITE);
         heading.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR,25));
 
